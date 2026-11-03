@@ -1,0 +1,45 @@
+{
+  "architecture_version": 10,
+  "candidate_mode": "full",
+  "world_tuning_scope": "full",
+  "initialization": "Original CVCI2/GeoBEV/IRWM pretraining; new Res and V10 modules initialized from scratch",
+  "initialization_checkpoints": {
+    "best_endpoint_1step.pth": {
+      "path": "/mnt/workspace/nix3sgh/Models/best_endpoint_1step.pth",
+      "sha256": "b70f1668f2c6c83d01e559e45e652394703d72cb34fd2e1182cb9fd2c42e9a5d"
+    },
+    "MMO_MSO_with_plan_tightly_coupled.pth": {
+      "path": "/mnt/workspace/nix3sgh/Models/MMO_MSO_with_plan_tightly_coupled.pth",
+      "sha256": "aa63288216282fa45fac48bbdbedd2fa67624b31058ea650ed5f8cc43c7b6d86"
+    },
+    "geobev-r50-nuimage-cbgs.pth": {
+      "path": "/mnt/workspace/nix3sgh/Models/geobev-r50-nuimage-cbgs.pth",
+      "sha256": "d7076e95611b2057ee1612e2e7b896c88a5c703374e6c1935d4f54786ffa19cb"
+    }
+  },
+  "prior_experiment_checkpoint_loaded": false,
+  "epochs": 10,
+  "total_updates": 5870,
+  "warmup_updates": 500,
+  "scheduler": "linear_warmup_cosine_to_0.001_of_peak",
+  "peak_learning_rates": {
+    "image_backbone": 5e-06,
+    "pretrained_other": 1e-05,
+    "pretrained_planner": 2e-05,
+    "new_future": 0.0001,
+    "new_offset": 0.0001,
+    "new_bev_bridge": 0.0001,
+    "geobev_depth_heads": 1e-05,
+    "world_tuned": 1e-06,
+    "new_current_readout": 0.0001
+  },
+  "effective_batch": 48,
+  "batch_per_gpu": 6,
+  "gradient_accumulation": 2,
+  "gpu_count": 4,
+  "world_activation_checkpointing": true,
+  "precision": "BF16 planner/GeoBEV; FP32 TF32 world",
+  "seed": 2026,
+  "validation": "all val frames; cold E2E fallback; discard incomplete six-point futures",
+  "note": "Restored differential peak rates; every IRWM parameter is trainable at 1e-6, with three-frame and five-step gradients."
+}

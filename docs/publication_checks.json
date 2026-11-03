@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "live_training_source_files_verified": 65,
+  "vendor_manifest": "PASS",
+  "world_configuration": "PASS",
+  "all_nine_learning_rate_groups": "PASS",
+  "original_pretraining_initialization": "PASS",
+  "portable_train_arguments_match_recorded_run": "PASS",
+  "portable_evaluation_arguments": "PASS",
+  "ten_epoch_own_checkpoint_resume": "PASS",
+  "dry_run_without_gpu": "PASS",
+  "python38_syntax_files": 208,
+  "credential_scan_findings": [],
+  "datasets_weights_logs_credentials_included": false,
+  "running_server_training_modified": false
+}
